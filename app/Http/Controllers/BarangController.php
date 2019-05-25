@@ -52,7 +52,6 @@ class BarangController extends Controller
         'stok' => $d
       ]);
     
-
       $barang = DB::table('barang')
       ->where('id_barang',$request->id)
       ->get();
