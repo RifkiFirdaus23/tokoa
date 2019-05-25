@@ -27,53 +27,50 @@
                 </div>
               </div>
 
-    		<div class="card-body px-5 py-3">
+                  		<div class="card-body px-5 py-3">
 
-    			<div class="row mx-3">
+                  			<div class="row mx-3">
 
+                          <table class="table table-responsive table-hover bg-light">
 
-      				 	<div class="card shadow-sm"><br>
-                    <img src="/img/s.jpg" alt="" style="height:210px; width:220px;">
-                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#z">
-                   Detail Pembelian
-                 </button>
+                            <thead>
+                              <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Nama Pembeli</th>
+                                <th scope="col">Nama Barang</th>
+                                <th scope="col">Unit</th>
+                                <th scope="col">Harga Per Unit</th>
+                                <th scope="col">Alamat </th>
+                                <th scope="col">Email</th>
+                                <th scope="col">No</th>
+                                <th scope="col">Sub Total</th>
 
-                 <!-- Modal -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($transaksi as $a)
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>{{$a -> pembeli}}</td>
+                                <td>{{$a -> nama}}</td>
+                                <td>{{$a -> qty}}</td>
+                                <td> Rp. {{$a -> harga}}</td>
+                                <td>{{$a->alamat}}</td>
+                                <td>{{$a -> email}}</td>
+                                <td>{{$a -> telp}}</td>
+                                <td>{{$a ->sub_total}}</td>
+                                <td><a href="/detail/hapus/{{$a ->id_order }}" class="btn btn-danger">Hapus</a></td>
 
-                 <div class="modal fade" id="z" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                   <div class="modal-dialog" role="document">
-                     <div class="modal-content">
-                       <div class="modal-header">
+                              </tr>
 
-                         <h5 class="modal-title" id="exampleModalLongTitle">Detail Pembelian</h5>
-                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                           <span aria-hidden="true">&times;</span>
-                         </button>
-                       </div>
-                          @foreach($transaksi as $a)
-                       <div class="modal-body">
-                          <p class="card-text col-12">Detail Pembelian: {{$a -> nama}}<br><hr></p>
-                          <p class="card-text col-12">Alamat : {{$a->alamat}}</p>
-                          <p class="card-text col-12">Email : {{$a -> email}}<br></p>
-                          <p class="card-text col-12">No : {{$a -> telp}}<br></p>
-                          <p class="card-text col-12">Total : {{$a ->total}}<br></p>
-                          <a href="/detail/hapus/{{$a -> id }}" class="btn btn-danger">Hapus</a>
-                       </div>
-                       @endforeach
+                            </tbody>
+                                @endforeach
+                          </table>
 
-                       <div class="modal-footer">
-                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-
-      						  <button type="submit" name="id" value="" class="card-footer btn" >Hapus</button>
-      						</div>
 
     			</div>
           <br>
-    		<div class="card-footer bg-dark text-light py-0">
+    		    <div class="card-footer bg-dark text-light py-0">
               <p class="text-center my-3">&copy; 2019 Rifky</p>
             </div>
 

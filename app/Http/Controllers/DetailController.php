@@ -8,15 +8,13 @@ use Illuminate\Support\Facades\DB;
 class DetailController extends Controller
 {
     public function detail(){
-    $transaksi=DB::table('transaksi')->get();
     $id_order = DB::table('transaksi')->select('id_order')->count()+1;
-
-      return view('detail', ['transaksi' => $transaksi]);
+    $transaksi=DB::table('transaksi')->join('keranjang', 'transaksi.id_order', '=', 'keranjang.id_order')->join('barang','keranjang.id_barang','=','barang.id_barang')->get();
+      return view('detail', ['transaksi' => $transaksi, 'id_order' => $id_order ]);
     }
-    public function hapus($id){
-
-        $hapus = DB::table('transaksi')->where('id', $id)->delete();
-
+    public function hapus($id_order){
+        DB::table('transaksi')->where('id_order', $id_order)->delete();
+        DB::table('keranjang')->where('id_order', $id_order)->delete();
         return redirect('detail');
     }
 

@@ -21,9 +21,13 @@ Route::get('/barang', 'BarangController@index');
 
 Route::get('/cari', 'BarangController@cari');
 
-Route::get('/detail/hapus/{id}', 'DetailController@hapus');
+Route::get('/detail/hapus/{id_order}', 'DetailController@hapus');
 
-Route::get('/barang/hapus/{id}', 'BarangController@hapus');
+Route::get('/chat', 'AdminController@chat');
+
+Route::get('/barang/keranjang', 'BarangController@keranjang');
+
+Route::get('/barang/keranjang/{id}', 'BarangController@hapus');
 
 Route::get('/admin', 'AdminController@admin');
 

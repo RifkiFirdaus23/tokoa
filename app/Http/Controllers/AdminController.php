@@ -28,6 +28,7 @@ class AdminController extends Controller
   DB::table('barang')->insert([
       'nama' =>$request->nama,
       'gambar' => $nama_file,
+      'stok' => $request->stok,
       'harga' =>$request->harga,
       'deskripsi' =>$request->deskripsi
 
@@ -39,15 +40,7 @@ class AdminController extends Controller
     return view('edit', ['barang' => $barang]);
   }
 
-  public function update(Request $request){
-    DB::table('barang')->where('id_barang',$request->id)->update([
-      'nama' => $request->nama,
-      'gambar' => $request->gambar,
-      'harga' => $request->harga,
-      'deskripsi' =>$request->deakripsi
-    ]);
-    return redirect('/admin');
-  }
+
   public function hapus($id){
     $gambar = DB::table('barang')->where('id_barang',$id)
     ->select('gambar')
@@ -59,7 +52,13 @@ class AdminController extends Controller
     return redirect('/admin');
 
 }
+public function chat(){
+
+
+  return view('chat');
+}
 
 }
+
 
  ?>

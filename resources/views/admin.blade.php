@@ -31,6 +31,7 @@
                             <tr>
                               <th>Nama</th>
                               <th>Gambar</th>
+                              <th>Stock</th>
                               <th>Harga</th>
                               <th>Deskripsi</th>
                               <th>Action</th>
@@ -41,6 +42,7 @@
                           <tr>
                             <td>{{$a->nama}}</td>
                             <td><img src="{{'img/'.$a->gambar}}"  style="height:100px;" alt=""></td>
+                            <td>{{$a->stok}}</td>
                             <td>{{$a->harga}}</td>
                             <td>{{$a->deskripsi}}</td>
                             <td>
@@ -73,6 +75,11 @@
                                     <div class="form-group">
                                       <label for="gambar">Gambar</label>
                                       <input type="file" name="gambar">
+
+                                      <div class="form-group">
+                                        <label for="exampleInputEmail1">Stock</label>
+                                        <input type="number" name="stok" class="form-control" id="exampleInputEmail1"  required>
+                                      </div>
                                     <div class="form-group">
                                       <label for="exampleInputEmail1">Harga</label>
                                       <input type="number" name="harga" class="form-control" id="exampleInputEmail1"  required>
@@ -126,6 +133,7 @@
                                       <tr>
                                         <th>Nama</th>
                                         <th>Gambar</th>
+                                        <th>Stock</th>
                                         <th>Harga</th>
                                         <th>Deskripsi</th>
                                       </tr>
@@ -135,6 +143,7 @@
                                       <tr>
                                         <td>{{$a->nama}}</td>
                                         <td><img src="{{'img/'.$a->gambar}}"  style="height:100px;" alt=""></td>
+                                        <td>{{$a->stok}}</td></td>
                                         <td>{{$a->harga}}</td>
                                         <td>{{$a->deskripsi}}</td>
                                       </tr>
@@ -145,10 +154,6 @@
                           </div>
                       </div>
                   </div>
-
-
-
       @endsection
-
   </body>
 </html>
